@@ -44,7 +44,7 @@ class DetailFilmActivity : AppCompatActivity() {
 
     private fun initView(film: FilmModel) {
         binding.apply {
-            imgPoster.loadImage(film.poster,true)
+            imgPoster.loadImage(film.poster, true, film.poster)
             tvTitle.text = film.title
             tvReleaseDate.text = film.releaseDate
 

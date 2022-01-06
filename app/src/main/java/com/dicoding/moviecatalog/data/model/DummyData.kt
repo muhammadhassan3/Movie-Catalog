@@ -359,4 +359,23 @@ class DummyData {
     fun getData(): List<FilmModel>{
         return data
     }
+
+    fun setMovies(): List<FilmModel>{
+        val result = arrayListOf<FilmModel>()
+        for(item in data)
+            if(item.type == FilmType.MOVIE) result.add(item)
+        return result
+    }
+
+    fun setSeries(): List<FilmModel>{
+        val result = arrayListOf<FilmModel>()
+        for(item in data)
+            if(item.type == FilmType.SERIES) result.add(item)
+        return result
+    }
+
+    fun setRandom(size: Int): List<FilmModel>{
+        val chunk = data.chunked(size)
+        return chunk[0]
+    }
 }

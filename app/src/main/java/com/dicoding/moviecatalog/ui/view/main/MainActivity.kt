@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object{
-        private const val RANDOM_VALUE = 8
+        private const val RANDOM_VALUE = 12
         @StringRes
         private val TAB_TITLE = arrayOf(
             R.string.movies,

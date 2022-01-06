@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.dicoding.moviecatalog.adapter.viewholder.ItemSmallViewHolder
 import com.dicoding.moviecatalog.data.model.FilmListInterface
 import com.dicoding.moviecatalog.data.model.FilmModel
@@ -16,13 +15,14 @@ class FilmSmallListAdapter(private val filmInterface: FilmListInterface) :
     RecyclerView.Adapter<ItemSmallViewHolder>() {
     private val list = arrayListOf<FilmModel>()
 
-    fun setData(data: List<FilmModel>){
+    fun setData(data: List<FilmModel>) {
         val diffCallback = FilmModelDiffUtils(this.list, data)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         list.clear()
         list.addAll(data)
         diffResult.dispatchUpdatesTo(this)
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemSmallViewHolder {
         val binding =
             LayoutItemSmallBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -33,10 +33,10 @@ class FilmSmallListAdapter(private val filmInterface: FilmListInterface) :
         holder.apply {
             val item = list[position]
             binding.apply {
-                imgPoster.loadImage(item.poster, true)
+                imgPoster.loadImage(item.poster, true, item.poster)
                 tvRating.text = item.rating.toString()
                 tvTitle.text = item.title
-                root.setOnClickListener{
+                root.setOnClickListener {
                     filmInterface.onItemClicked(item)
                 }
             }

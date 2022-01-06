@@ -42,7 +42,7 @@ class TvShowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentTvShowBinding.bind(view)
 
-        binding.rvList.apply{
+        binding.rvTvShow.apply{
             adapter = filmAdapter
             val span = if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
             layoutManager = GridLayoutManager(requireContext(), span)

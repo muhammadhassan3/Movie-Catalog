@@ -14,7 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:id="@+id/collapsingToolbar">
             <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,7 +31,9 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="enterAlways"
             style="@style/MovieCatalog.TabLayout"
-            app:tabBackground="@android:color/holo_orange_dark">
+            app:tabBackground="@android:color/white"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorHeight="2dp">
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.viewpager2.widget.ViewPager2

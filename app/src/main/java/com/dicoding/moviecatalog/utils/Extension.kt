@@ -2,36 +2,26 @@ package com.dicoding.moviecatalog.utils
 
 import android.graphics.drawable.Drawable
 import android.util.Log
-import android.view.View
 import android.widget.ImageView
-import androidx.core.graphics.drawable.DrawableCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.dicoding.moviecatalog.R
-import com.facebook.shimmer.ShimmerFrameLayout
 
-fun View.gone(){
-    this.visibility = View.GONE
-}
-
-fun View.visible(){
-    this.visibility = View.VISIBLE
-}
-
-fun ImageView.loadImage(url: String, shouldRetry: Boolean){
-    Glide.with(this).load(url).listener(object: RequestListener<Drawable>{
+fun ImageView.loadImage(url: Any, shouldRetry: Boolean, tag: Any) {
+    this.tag = tag
+    Glide.with(this).load(url).listener(object : RequestListener<Drawable> {
         override fun onLoadFailed(
             e: GlideException?,
             model: Any?,
             target: Target<Drawable>?,
             isFirstResource: Boolean
         ): Boolean {
-            if(shouldRetry){
-                this@loadImage.loadImage(url, false)
-            }else Log.e("Glide", "Failed load image ${e.toString()}")
+            if (shouldRetry) {
+                this@loadImage.loadImage(url, false, tag)
+            } else Log.e("Glide", "Failed load image ${e.toString()}")
             return false
         }
 
@@ -45,5 +35,17 @@ fun ImageView.loadImage(url: String, shouldRetry: Boolean){
             return false
         }
 
-    }).placeholder(R.drawable.image_placeholder).error(R.drawable.image_broken).centerCrop().into(this)
+    }).placeholder(R.drawable.image_placeholder).error(R.drawable.image_broken).centerCrop()
+        .into(this)
+}
+
+fun Float.roundRating(): Float{
+    if(this/10 > 1) throw IllegalArgumentException("Rating cannot greather than 10")
+    val a = this * 10
+    val b = a % 10
+    return if(b <5 ){
+        (a-b)/10
+    }else{
+        (a-b+10)/10
+    }
 }

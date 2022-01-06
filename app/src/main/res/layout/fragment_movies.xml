@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.main.fragment.MoviesFragment"
-    android:padding="16dp">
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rvList"
+        android:id="@+id/rvMovies"
         tools:listitem="@layout/layout_item_small"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,5 +18,6 @@
         app:spanCount="2"
         app:layoutManager="GridLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="@dimen/grid_layout_margin"/>
+        android:paddingStart="@dimen/grid_layout_margin"
+        android:paddingEnd="@dimen/grid_layout_margin"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,7 +41,7 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMoviesBinding.bind(view)
-        binding.rvList.apply{
+        binding.rvMovies.apply{
             adapter = filmAdapter
             val span = if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
             layoutManager = GridLayoutManager(requireContext(), span)
