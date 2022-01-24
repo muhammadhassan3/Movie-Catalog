@@ -16,13 +16,16 @@
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/image_placeholde.xml" value="0.3173828125" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/image_placeholder.xml" value="0.2203125" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_detail_film.xml" value="0.25" />
-        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_splash.xml" value="0.2" />
-        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_movies.xml" value="0.1" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_movies.xml" value="0.22" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_tv_show.xml" value="0.1" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_collapsing_toolbar.xml" value="0.25" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_item_small.xml" value="0.22" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_no_data.xml" value="0.25" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_shimmer_item_small.xml" value="0.1111111111111111" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_detail_film.xml" value="0.33" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_item_small_placeholder.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/mipmap-anydpi-v26/app_icon.xml" value="0.2203125" />
       </map>
     </option>

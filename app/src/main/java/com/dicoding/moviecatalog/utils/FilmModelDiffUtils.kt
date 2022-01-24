@@ -16,13 +16,13 @@ class FilmModelDiffUtils(
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldDataList[oldItemPosition].title.equals(newDataList[newItemPosition])
+        return oldDataList[oldItemPosition].id == newDataList[newItemPosition].id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldData = oldDataList[oldItemPosition]
         val newData = newDataList[newItemPosition]
-        return oldData.title == newData.title
+        return oldData.id == newData.id
     }
 
 }

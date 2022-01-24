@@ -1,17 +1,25 @@
 package com.dicoding.moviecatalog.ui.view.main
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.moviecatalog.data.repository.FilmRepository
+import com.dicoding.moviecatalog.data.model.FilmModel
+import com.dicoding.moviecatalog.data.usecase.FilmListUseCase
+import com.dicoding.moviecatalog.utils.ApiResponse
 
-class MainViewModel: ViewModel() {
-    private val repository = FilmRepository()
-    val movies = repository.movies
-    val series = repository.series
-    val random = repository.random
+class MainViewModel(private val useCase: FilmListUseCase): ViewModel() {
+    lateinit var movies: LiveData<ApiResponse<List<FilmModel>>>
+    lateinit var series: LiveData<ApiResponse<List<FilmModel>>>
+    lateinit var random: LiveData<ApiResponse<List<FilmModel>>>
 
-    fun setMovies() = repository.setMovies()
+    fun setMovies(){
+        movies = useCase.getPopularMovies()
+    }
 
-    fun setSeries() = repository.setSeries()
+    fun setSeries() {
+        series = useCase.getPopularSeries()
+    }
 
-    fun setRandom(size: Int) = repository.setRandom(size)
+    fun setRandom(size: Int) {
+        random = useCase.getPopularFilm(size)
+    }
 }

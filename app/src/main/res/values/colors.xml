@@ -12,4 +12,5 @@
     <color name="viridian_green">#0a9396</color>
     <color name="viridian_green_40">#400a9396</color>
     <color name="dark_yellow">#FFB703</color>
+    <color name="grey">#aaaaaa</color>
 </resources>

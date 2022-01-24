@@ -31,9 +31,9 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="enterAlways"
             style="@style/MovieCatalog.TabLayout"
-            app:tabBackground="@android:color/white"
             app:tabIndicatorFullWidth="true"
-            app:tabIndicatorHeight="2dp">
+            app:tabIndicatorHeight="2dp"
+            android:background="@color/white">
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.viewpager2.widget.ViewPager2

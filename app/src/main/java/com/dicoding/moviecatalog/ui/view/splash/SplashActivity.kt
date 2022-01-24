@@ -22,6 +22,10 @@ class SplashActivity : AppCompatActivity() {
         Handler(mainLooper).postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        },5000)
+        }, delayTime)
+    }
+
+    companion object{
+        private const val delayTime = 5000L
     }
 }

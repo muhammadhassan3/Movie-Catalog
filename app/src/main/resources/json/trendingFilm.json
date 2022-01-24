@@ -1,0 +1,431 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg",
+            "genre_ids": [
+                28,
+                12,
+                878
+            ],
+            "id": 634649,
+            "original_language": "en",
+            "original_title": "Spider-Man: No Way Home",
+            "overview": "Peter Parker menghadapi masalah besar. Hal ini terjadi setelah identitasnya sebagai Spiderman terungkap. Dengan kepergian Tony Stark, Peter Parker pun harus meminta bantuan Doctor Strange agar semua orang bisa melupakan identitasnya sebagai manusia laba-laba.",
+            "poster_path": "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+            "release_date": "2021-12-15",
+            "title": "Spider-Man: No Way Home",
+            "video": false,
+            "vote_average": 8.5,
+            "vote_count": 4367,
+            "popularity": 5874.67,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/c6H7Z4u73ir3cIoCteuhJh7UCAR.jpg",
+            "genre_ids": [
+                28,
+                12,
+                14,
+                878
+            ],
+            "id": 524434,
+            "original_language": "en",
+            "original_title": "Eternals",
+            "overview": "The Eternals adalah tim alien kuno yang telah hidup di Bumi secara rahasia selama ribuan tahun. Ketika sebuah tragedi tak terduga memaksa mereka keluar dari bayang-bayang, mereka dipaksa untuk bersatu kembali melawan musuh paling kuno umat manusia, Deviants.",
+            "poster_path": "/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg",
+            "release_date": "2021-11-03",
+            "title": "Eternals",
+            "video": false,
+            "vote_average": 7.3,
+            "vote_count": 3139,
+            "popularity": 11424.242,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/ur19n7Zabzf7wfhK4MrlFDJiZPI.jpg",
+            "genre_ids": [
+                16,
+                10751,
+                14,
+                35,
+                12
+            ],
+            "original_language": "en",
+            "original_title": "Hotel Transylvania: Transformania",
+            "poster_path": "/6zt5l4DYV1kLPL5Vqz1kLq3THXD.jpg",
+            "title": "Hotel Transylvania: Transformania",
+            "video": false,
+            "vote_average": 7.8,
+            "overview": "",
+            "release_date": "2022-01-14",
+            "vote_count": 770,
+            "id": 585083,
+            "popularity": 10200.442,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/7VwrJUAh7ed1ndbPmb0HDO0Bh6r.jpg",
+            "genre_ids": [
+                10749,
+                35
+            ],
+            "id": 790142,
+            "original_language": "en",
+            "original_title": "The Royal Treatment",
+            "overview": "",
+            "poster_path": "/faUHWGTr1hN0wGtqYfiWNJXhBlW.jpg",
+            "release_date": "2022-01-20",
+            "title": "The Royal Treatment",
+            "video": false,
+            "vote_average": 5.9,
+            "vote_count": 12,
+            "popularity": 48.989,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+            "genre_ids": [
+                16,
+                35,
+                10751,
+                14
+            ],
+            "id": 568124,
+            "original_language": "en",
+            "original_title": "Encanto",
+            "overview": "",
+            "poster_path": "/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg",
+            "release_date": "2021-11-24",
+            "title": "Encanto",
+            "video": false,
+            "vote_average": 7.8,
+            "vote_count": 3157,
+            "popularity": 4832.255,
+            "media_type": "movie"
+        },
+        {
+            "backdrop_path": "/ctxm191q5o3axFzQsvNPlbKoSYv.jpg",
+            "first_air_date": "2022-01-13",
+            "genre_ids": [
+                10759,
+                35,
+                10765
+            ],
+            "id": 110492,
+            "name": "Peacemaker",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Peacemaker",
+            "overview": "",
+            "poster_path": "/hE3LRZAY84fG19a18pzpkZERjTE.jpg",
+            "vote_average": 8.7,
+            "vote_count": 130,
+            "popularity": 1616.273,
+            "media_type": "tv"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg",
+            "genre_ids": [
+                878,
+                28,
+                12
+            ],
+            "id": 624860,
+            "original_language": "en",
+            "original_title": "The Matrix Resurrections",
+            "overview": "Kisah Neo berlanjut, perjuangan kali ini akan lebih sulit dari sebelumnya. Perang antara dua dunia kembali lagi terjadi. Diganggu oleh kenangan aneh, kehidupan Neo berubah secara tak terduga ketika dia menemukan dirinya kembali kedalam Matrix.",
+            "poster_path": "/8c4a8kE7PizaGQQnditMmI1xbRp.jpg",
+            "release_date": "2021-12-16",
+            "title": "The Matrix Resurrections",
+            "video": false,
+            "vote_average": 6.9,
+            "vote_count": 2346,
+            "popularity": 2920.594,
+            "media_type": "movie"
+        },
+        {
+            "backdrop_path": "/sjx6zjQI2dLGtEL0HGWsnq6UyLU.jpg",
+            "first_air_date": "2021-12-29",
+            "genre_ids": [
+                10765,
+                10759,
+                16
+            ],
+            "id": 115036,
+            "name": "The Book of Boba Fett",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Book of Boba Fett",
+            "overview": "",
+            "poster_path": "/gNbdjDi1HamTCrfvM9JeA94bNi2.jpg",
+            "vote_average": 8.1,
+            "vote_count": 447,
+            "popularity": 2245.989,
+            "media_type": "tv"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/1GrURa0tEBIBjJ2EbeRsMP65YPK.jpg",
+            "genre_ids": [
+                14,
+                18,
+                10749
+            ],
+            "id": 245842,
+            "original_language": "en",
+            "original_title": "The King's Daughter",
+            "overview": "",
+            "poster_path": "/zwRf07ECh7nV7xlahKzN5wFYhGx.jpg",
+            "release_date": "2022-01-21",
+            "title": "The King's Daughter",
+            "video": false,
+            "vote_average": 7.6,
+            "vote_count": 79,
+            "popularity": 243.162,
+            "media_type": "movie"
+        },
+        {
+            "original_language": "en",
+            "original_title": "Sing 2",
+            "poster_path": "/aWeKITRFbbwY8txG5uCj4rMCfSP.jpg",
+            "video": false,
+            "vote_average": 8.3,
+            "overview": "",
+            "release_date": "2021-12-01",
+            "id": 438695,
+            "title": "Sing 2",
+            "adult": false,
+            "backdrop_path": "/tutaKitJJIaqZPyMz7rxrhb4Yxm.jpg",
+            "genre_ids": [
+                16,
+                35,
+                10751,
+                10402
+            ],
+            "vote_count": 1110,
+            "popularity": 5211.181,
+            "media_type": "movie"
+        },
+        {
+            "id": 85552,
+            "original_language": "en",
+            "original_name": "Euphoria",
+            "origin_country": [
+                "US"
+            ],
+            "name": "Euphoria",
+            "overview": "",
+            "vote_count": 5599,
+            "first_air_date": "2019-06-16",
+            "vote_average": 8.4,
+            "backdrop_path": "/oKt4J3TFjWirVwBqoHyIvv5IImd.jpg",
+            "poster_path": "/jtnfNzqZwN4E32FGGxx1YZaBWWf.jpg",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 3319.83,
+            "media_type": "tv"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/x1d11fjOMGcAsi0ehxJ7l7u7HS2.jpg",
+            "genre_ids": [
+                18,
+                10752
+            ],
+            "id": 591538,
+            "original_language": "en",
+            "original_title": "The Tragedy of Macbeth",
+            "overview": "",
+            "poster_path": "/tDNJEhcLbX3jIk3BMCur9pCdaVD.jpg",
+            "release_date": "2021-12-05",
+            "title": "The Tragedy of Macbeth",
+            "video": false,
+            "vote_average": 7.0,
+            "vote_count": 109,
+            "popularity": 140.518,
+            "media_type": "movie"
+        },
+        {
+            "original_language": "en",
+            "original_title": "Scream",
+            "poster_path": "/kZNHR1upJKF3eTzdgl5V8s8a4C3.jpg",
+            "video": false,
+            "vote_average": 7.3,
+            "overview": "",
+            "release_date": "2022-01-12",
+            "vote_count": 228,
+            "adult": false,
+            "backdrop_path": "/vumcocHugkAxMRDsQdVKyNCjkfh.jpg",
+            "title": "Scream",
+            "genre_ids": [
+                27,
+                9648,
+                53
+            ],
+            "id": 646385,
+            "popularity": 792.13,
+            "media_type": "movie"
+        },
+        {
+            "poster_path": "/sg4xJaufDiQl7caFEskBtQXfD4x.jpg",
+            "overview": "Ketika seorang Ibu tunggal dan dua anaknya tiba di sebuah kota kecil, mereka mulai menemukan hubungan mereka dengan Ghostbusters asli dan warisan yang ditinggalkan kakek mereka.",
+            "release_date": "2021-11-11",
+            "vote_average": 7.7,
+            "adult": false,
+            "id": 425909,
+            "title": "Ghostbusters: Afterlife",
+            "genre_ids": [
+                35,
+                14,
+                12
+            ],
+            "vote_count": 1363,
+            "video": false,
+            "backdrop_path": "/EnDlndEvw6Ptpp8HIwmRcSSNKQ.jpg",
+            "original_language": "en",
+            "original_title": "Ghostbusters: Afterlife",
+            "popularity": 3894.636,
+            "media_type": "movie"
+        },
+        {
+            "release_date": "2021-09-15",
+            "adult": false,
+            "backdrop_path": "/jYEW5xZkZk2WTrdbMGAPFuBqbDc.jpg",
+            "genre_ids": [
+                878,
+                12
+            ],
+            "vote_count": 5557,
+            "id": 438631,
+            "original_title": "Dune",
+            "poster_path": "/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+            "original_language": "en",
+            "title": "Dune",
+            "video": false,
+            "vote_average": 7.9,
+            "overview": "Dune berkisah tentang seorang pemuda bernama Paul Atreides yang diperankan oleh Timothee Chalamet yang akan pindah dari tempat tinggalnya saat ini di Caladan bersama anggota keluarganya.  Paul dan keluarganya akan menjalani hidup baru di sebuah planet lain yang bernama planet Arrakis. Arrakis merupakan planet dengan kondisi alam berupa gurun pasir yang luas.  Sekilas, planet Arrakis merupakan planet yang gersang karena merupakan gurun. Akan tetapi Arrakis menyimpan hal istimewa di dalamnya. Arrakis menyimpan rempah-rempah yang disebut spice. Spice di Arrakis sangat melimpah dan mengandung khasiat istimewa.",
+            "popularity": 733.554,
+            "media_type": "movie"
+        },
+        {
+            "id": 112314,
+            "original_language": "en",
+            "original_name": "Archive 81",
+            "origin_country": [
+                "US"
+            ],
+            "name": "Archive 81",
+            "overview": "",
+            "vote_count": 45,
+            "first_air_date": "2022-01-14",
+            "vote_average": 7.1,
+            "backdrop_path": "/puj26cc01SIRUzXMoXE8S17Ker0.jpg",
+            "poster_path": "/l1jeSEm6a88GFcLzlHQr60D0dOi.jpg",
+            "genre_ids": [
+                18,
+                9648,
+                10765
+            ],
+            "popularity": 268.055,
+            "media_type": "tv"
+        },
+        {
+            "backdrop_path": "/ifGVUbvl36CnY9mp4kquK8In1Rh.jpg",
+            "first_air_date": "2021-03-25",
+            "genre_ids": [
+                10765,
+                10759,
+                16
+            ],
+            "id": 118956,
+            "name": "DOTA: Dragon's Blood",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "DOTA: Dragon's Blood",
+            "overview": "",
+            "poster_path": "/s1wP1YeQS9fgSHiXZ3yJb2ufB2D.jpg",
+            "vote_average": 8.0,
+            "vote_count": 234,
+            "popularity": 272.746,
+            "media_type": "tv"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/tUYotMWdNGXtH22cs7p3a7c19PS.jpg",
+            "genre_ids": [
+                18,
+                10770
+            ],
+            "id": 800425,
+            "original_language": "en",
+            "original_title": "Ray Donovan: The Movie",
+            "overview": "",
+            "poster_path": "/5sw1EvOeXMGRZGWr18R4EiZs036.jpg",
+            "release_date": "2022-01-14",
+            "title": "Ray Donovan: The Movie",
+            "video": false,
+            "vote_average": 7.1,
+            "vote_count": 28,
+            "popularity": 388.735,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/1K7jIv3vy6dIXwo0CQNwokLeJc5.jpg",
+            "genre_ids": [
+                28,
+                80,
+                18
+            ],
+            "id": 414906,
+            "original_language": "en",
+            "original_title": "The Batman",
+            "overview": "",
+            "poster_path": "/8gVy5MLXtZBWghMykQtPMsNc5kH.jpg",
+            "release_date": "2022-03-01",
+            "title": "The Batman",
+            "video": false,
+            "vote_average": 0.0,
+            "vote_count": 0,
+            "popularity": 165.431,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/eTUFS0aj81tdtz464wgGXDt7lm2.jpg",
+            "genre_ids": [
+                53,
+                27,
+                9648
+            ],
+            "id": 576845,
+            "original_language": "en",
+            "original_title": "Last Night in Soho",
+            "overview": "",
+            "poster_path": "/ahbwIJl7T0D34m3sPKlBaCqs2xH.jpg",
+            "release_date": "2021-10-21",
+            "title": "Last Night in Soho",
+            "video": false,
+            "vote_average": 7.5,
+            "vote_count": 1070,
+            "popularity": 307.267,
+            "media_type": "movie"
+        }
+    ],
+    "total_pages": 1000,
+    "total_results": 20000
+}

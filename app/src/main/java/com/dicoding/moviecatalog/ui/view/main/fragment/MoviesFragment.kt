@@ -16,14 +16,15 @@ import com.dicoding.moviecatalog.data.model.FilmModel
 import com.dicoding.moviecatalog.databinding.FragmentMoviesBinding
 import com.dicoding.moviecatalog.ui.view.detail.DetailFilmActivity
 import com.dicoding.moviecatalog.ui.view.main.MainViewModel
-import com.dicoding.moviecatalog.utils.GridSpacingItemDecoration
+import com.dicoding.moviecatalog.utils.*
 
 class MoviesFragment : Fragment() {
     private var filmAdapter = FilmSmallListAdapter(
         object: FilmListInterface{
             override fun onItemClicked(item: FilmModel) {
                 val intent = Intent(requireContext(), DetailFilmActivity::class.java)
-                intent.putExtra(DetailFilmActivity.FILM, item)
+                intent.putExtra(DetailFilmActivity.ID, item.id)
+                intent.putExtra(DetailFilmActivity.MEDIA_TYPE, "movie")
                 startActivity(intent)
             }
         }
@@ -50,13 +51,62 @@ class MoviesFragment : Fragment() {
             addItemDecoration(decoration)
         }
 
-        initViewModel()
+        initViewModel(binding)
     }
 
-    private fun initViewModel(){
+    private fun initViewModel(binding: FragmentMoviesBinding){
         viewModel.setMovies()
         viewModel.movies.observe(viewLifecycleOwner){
-            filmAdapter.setData(it)
+            when(it.status){
+                Status.SUCCESS -> {
+                    showState(binding, State.SUCCESS)
+                    filmAdapter.setData(it.data)
+                }
+                Status.ERROR -> {
+                    showState(binding, State.NO_DATA)
+                    val content = it.message?.getContentIfNotHandled()
+                    content?.let{
+                        binding.root.showSnackbar(content)
+                    }
+                }
+                Status.LOADING -> showState(binding, State.LOADING)
+                Status.NO_DATA -> showState(binding, State.NO_DATA)
+            }
+        }
+    }
+
+    private fun showState(binding: FragmentMoviesBinding, state: State){
+        when(state){
+            State.NO_DATA -> {
+                binding.apply {
+                    shimmerMovie.apply {
+                        stopShimmer()
+                        gone()
+                    }
+                    rvMovies.visible()
+                    emptyData.root.visible()
+                }
+            }
+            State.SUCCESS -> {
+                binding.apply {
+                    shimmerMovie.apply{
+                        stopShimmer()
+                        gone()
+                    }
+                    rvMovies.visible()
+                    emptyData.root.gone()
+                }
+            }
+            State.LOADING -> {
+                binding.apply{
+                    shimmerMovie.apply{
+                        startShimmer()
+                        visible()
+                    }
+                    rvMovies.gone()
+                    emptyData.root.gone()
+                }
+            }
         }
     }
 
