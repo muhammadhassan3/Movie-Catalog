@@ -8,7 +8,25 @@
     <string name="genre">Genre</string>
     <string name="rating">Rating</string>
     <string name="app_icon">App Icon</string>
-    <string name="no_data">No data available</string>
+    <string name="no_data"><i>No data available</i></string>
     <string name="series">Tv Show</string>
     <string name="film">Film</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="btn_bookmark">Button Bookmark</string>
+    <string name="title_bookmark">Bookmarked Movie</string>
+    <string name="retry">Retry</string>
+    <string name="filter">Filter</string>
+    <string name="sort">Sort</string>
+    <string name="filter_by">Filter By</string>
+    <string name="sort_by">Sort by</string>
+    <string name="search">Search</string>
+    <string name="btn_search">Button Search</string>
+    <string name="popular_title">Popular %s</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="search_hint">Write title here</string>
+    <string name="search_title">Find</string>
+    <string name="no_favorite">Not Favorited</string>
+    <string name="favorited">Favorited</string>
 </resources>

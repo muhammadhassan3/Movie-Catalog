@@ -1,10 +1,15 @@
 package com.dicoding.moviecatalog.ui.view.detail
 
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.dicoding.moviecatalog.R
+import com.dicoding.moviecatalog.data.database.entity.FavoriteEntity
 import com.dicoding.moviecatalog.data.model.FilmModel
 import com.dicoding.moviecatalog.databinding.ActivityDetailFilmBinding
 import com.dicoding.moviecatalog.utils.*
@@ -16,6 +21,7 @@ class DetailFilmActivity : AppCompatActivity() {
     private var id: Int = 0
     private var mediaType: String? = null
     private val viewModel: DetailFilmViewModel by viewModel()
+    private var favorite = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailFilmBinding.inflate(layoutInflater)
@@ -41,13 +47,13 @@ class DetailFilmActivity : AppCompatActivity() {
             setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
         }
 
+
         initViewModel()
     }
 
     private fun initViewModel() {
         mediaType?.let { viewModel.setData(id, it) }
         viewModel.data.observe(this) {
-            Log.e("View Model", (it==null).toString())
             when(it.status){
                 Status.NO_DATA -> {
                     showState(State.NO_DATA)
@@ -67,6 +73,24 @@ class DetailFilmActivity : AppCompatActivity() {
                         showState(State.SUCCESS)
                         initView(data)
                     }
+                }
+            }
+        }
+
+        viewModel.getFavorite(id.toLong())
+        viewModel.favoriteData.observe(this){
+            favorite = it != null
+            if(it != null){
+                binding.btnBookmark.apply {
+                    backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailFilmActivity, R.color.viridian_green))
+                    setImageResource(R.drawable.ic_baseline_favorite_24)
+                    tag = resources.getString(R.string.favorited)
+                }
+            }else{
+                binding.btnBookmark.apply{
+                    backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailFilmActivity, R.color.white))
+                    setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                    tag = resources.getString(R.string.no_favorite)
                 }
             }
         }
@@ -90,8 +114,13 @@ class DetailFilmActivity : AppCompatActivity() {
                 chip.isClickable = false
                 chipGroup.addView(chip)
             }
-
-            tvSynopsis.text = film.synopsis
+            btnBookmark.setOnClickListener {
+                if(favorite){
+                    viewModel.removeFavorite(id.toLong())
+                }else viewModel.insertFavorite(FavoriteEntity(null, film.id,
+                    film.title.toString(),film.poster, mediaType.toString(), film.releaseDate, film.synopsis ))
+            }
+            tvSynopsis.text = if(film.synopsis == "") getString(R.string.no_data) else film.synopsis
         }
     }
 
@@ -132,11 +161,12 @@ class DetailFilmActivity : AppCompatActivity() {
                         startShimmer()
                         visible()
                     }
-                    containerDetail.visible()
-                    containerSynopsis.visible()
+                    containerDetail.gone()
+                    containerSynopsis.gone()
                     emptyData.root.gone()
                 }
             }
+            else ->{}
         }
     }
 

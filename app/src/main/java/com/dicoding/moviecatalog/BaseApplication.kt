@@ -3,6 +3,7 @@ package com.dicoding.moviecatalog
 import android.app.Application
 import com.dicoding.moviecatalog.utils.Module.apiModule
 import com.dicoding.moviecatalog.utils.Module.dataSourceModule
+import com.dicoding.moviecatalog.utils.Module.databaseModule
 import com.dicoding.moviecatalog.utils.Module.repositoryModule
 import com.dicoding.moviecatalog.utils.Module.useCaseModule
 import com.dicoding.moviecatalog.utils.Module.viewModelModule
@@ -24,7 +25,8 @@ class BaseApplication: Application() {
                 apiModule,
                 repositoryModule,
                 useCaseModule,
-                dataSourceModule
+                dataSourceModule,
+                databaseModule
             ))
         }
     }

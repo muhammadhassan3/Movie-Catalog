@@ -28,4 +28,27 @@ object LiveDataTestUtil {
 
         return data[0] as ApiResponse<T>
     }
+
+    fun <T> LiveData<T>.value(): T {
+        val data = arrayOfNulls<Any>(1)
+        val latch = CountDownLatch(1)
+
+        val observer = object : Observer<T> {
+            override fun onChanged(o: T) {
+                data[0] = o
+                latch.countDown()
+                this@value.removeObserver(this)
+            }
+        }
+
+        this.observeForever(observer)
+
+        try {
+            latch.await(2, TimeUnit.SECONDS)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+
+        return data[0] as T
+    }
 }

@@ -2,25 +2,35 @@ package com.dicoding.moviecatalog.ui.view.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.moviecatalog.R
-import com.dicoding.moviecatalog.adapter.FilmSmallListAdapter
+import com.dicoding.moviecatalog.adapter.FilmSmallPagingAdapter
 import com.dicoding.moviecatalog.adapter.SectionPagerAdapter
+import com.dicoding.moviecatalog.adapter.loadstate.ItemSmallLoadStateAdapter
 import com.dicoding.moviecatalog.data.model.FilmListInterface
 import com.dicoding.moviecatalog.data.model.FilmModel
 import com.dicoding.moviecatalog.databinding.ActivityMainBinding
 import com.dicoding.moviecatalog.ui.view.detail.DetailFilmActivity
+import com.dicoding.moviecatalog.ui.view.favorite.FavoriteActivity
+import com.dicoding.moviecatalog.ui.view.search.SearchActivity
 import com.dicoding.moviecatalog.utils.*
+import com.dicoding.moviecatalog.utils.exception.NoDataAvailableException
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModel()
-    private var animationDuration = 0
-    private var randomAdapter = FilmSmallListAdapter(object : FilmListInterface {
+    private var randomAdapter = FilmSmallPagingAdapter(object : FilmListInterface {
         override fun onItemClicked(item: FilmModel) {
             val intent = Intent(this@MainActivity, DetailFilmActivity::class.java)
             intent.putExtra(DetailFilmActivity.ID, item.id)
@@ -28,46 +38,96 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     })
+    private lateinit var menu: Menu
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        animationDuration = resources.getInteger(android.R.integer.config_shortAnimTime)
+
 
         initTabLayout()
         initListRandom()
+
+        binding.apply{
+            setSupportActionBar(toolbar)
+            supportActionBar?.apply{
+                title = ""
+            }
+            btnBookmark.setOnClickListener {
+                startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
+            }
+            layoutCollapsingToolbar.error.btnRetry.setOnClickListener {
+                randomAdapter.retry()
+            }
+            appbar.addOnOffsetChangedListener(object: AppBarLayout.OnOffsetChangedListener{
+                var isShow = false
+                var scrollRange = -1
+                override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+                    appBarLayout?.let {
+                        if (scrollRange == -1) {
+                            scrollRange = it.totalScrollRange
+                        }
+                        if(scrollRange + verticalOffset == 0){
+                            isShow = true
+                            showOption(R.id.action_search)
+                        }else if(isShow){
+                            isShow = false
+                            hideOption(R.id.action_search)
+                        }
+                    }
+                }
+            })
+            btnSearch.setOnClickListener{
+                startActivity(Intent(this@MainActivity, SearchActivity::class.java))
+            }
+        }
+    }
+
+    private fun showOption(id: Int){
+        val item = menu.findItem(id)
+        item.isVisible = true
+    }
+
+    private fun hideOption(id: Int){
+        val item = menu.findItem(id)
+        item.isVisible = false
     }
 
     private fun initListRandom() {
-        binding.layoutCollapsingToolbar.rvRandom.apply {
-            adapter = randomAdapter
-            layoutManager =
-                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
-
-        }
-        viewModel.setRandom(RANDOM_VALUE)
-        viewModel.random.observe(this, {
-            when (it.status) {
-                Status.SUCCESS -> {
+        val concatAdapter = randomAdapter.withLoadStateFooter(
+            footer = ItemSmallLoadStateAdapter{
+                randomAdapter.retry()
+            }
+        )
+        var state: LoadState = LoadState.NotLoading(endOfPaginationReached = false)
+        randomAdapter.addLoadStateListener {
+            if(state != it.source.refresh) {
+                if (randomAdapter.itemCount > 0 && it.source.refresh is LoadState.NotLoading) {
                     showState(State.SUCCESS)
-                    randomAdapter.setData(it.data)
-                }
-                Status.LOADING -> {
+                } else if (it.source.refresh is LoadState.Loading) {
                     showState(State.LOADING)
-                }
-                Status.ERROR -> {
-                    showState(State.NO_DATA)
-                    val content = it.message?.getContentIfNotHandled()
-                    content?.let { message ->
-                        binding.root.showSnackbar(message)
+                } else if (it.source.refresh is LoadState.Error) {
+                    val errorType = (it.refresh as LoadState.Error).error
+                    if (errorType is NoDataAvailableException) {
+                        showState(State.NO_DATA)
+                    } else {
+                        showState(State.ERROR)
                     }
                 }
-                Status.NO_DATA -> {
-                    showState(State.NO_DATA)
-                }
+                state = it.source.refresh
             }
-        })
+        }
+        binding.layoutCollapsingToolbar.rvRandom.apply {
+            adapter = concatAdapter
+            layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+        }
+        lifecycleScope.launch {
+            viewModel.getTrending().collect {
+                randomAdapter.submitData(it)
+            }
+        }
     }
 
     private fun initTabLayout() {
@@ -76,6 +136,20 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLE[position])
         }.attach()
+        binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.let{
+                    supportActionBar?.title = resources.getString(R.string.popular_title, it.text)
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+        })
     }
 
     override fun onResume() {
@@ -88,6 +162,13 @@ class MainActivity : AppCompatActivity() {
         binding.layoutCollapsingToolbar.shimmerRandom.stopShimmer()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        this.menu = menu
+        menuInflater.inflate(R.menu.search, menu)
+        hideOption(R.id.action_search)
+        return true
+    }
+
     private fun showState(state: State) {
         when (state) {
             State.LOADING -> {
@@ -96,8 +177,9 @@ class MainActivity : AppCompatActivity() {
                         startShimmer()
                         visible()
                     }
-                    rvRandom.visible()
+                    rvRandom.gone()
                     emptyData.root.gone()
+                    error.root.gone()
                 }
             }
             State.SUCCESS -> {
@@ -108,6 +190,7 @@ class MainActivity : AppCompatActivity() {
                         gone()
                     }
                     emptyData.root.gone()
+                    error.root.gone()
                 }
             }
             State.NO_DATA -> {
@@ -118,13 +201,25 @@ class MainActivity : AppCompatActivity() {
                         gone()
                     }
                     rvRandom.gone()
+                    error.root.gone()
+                }
+            }
+            State.ERROR -> {
+                binding.layoutCollapsingToolbar.apply {
+                    emptyData.root.gone()
+                    shimmerRandom.apply {
+                        stopShimmer()
+                        gone()
+                    }
+                    rvRandom.gone()
+
+                    error.root.visible()
                 }
             }
         }
     }
 
     companion object {
-        private const val RANDOM_VALUE = 12
 
         @StringRes
         private val TAB_TITLE = arrayOf(

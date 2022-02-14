@@ -1,13 +1,16 @@
 package com.dicoding.moviecatalog.data.repository
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingData
 import com.dicoding.moviecatalog.data.model.FilmModel
 import com.dicoding.moviecatalog.utils.ApiResponse
+import kotlinx.coroutines.flow.Flow
 
 interface FilmRepository {
-    fun loadRandom(size: Int): LiveData<ApiResponse<List<FilmModel>>>
-    fun loadMovies(): LiveData<ApiResponse<List<FilmModel>>>
-    fun loadSeries(): LiveData<ApiResponse<List<FilmModel>>>
+    fun loadTrending(): Flow<PagingData<FilmModel>>
+    fun loadMovies(): Flow<PagingData<FilmModel>>
+    fun loadSeries(): Flow<PagingData<FilmModel>>
+    fun getSearchResult(query: String): LiveData<PagingData<FilmModel>>
     fun loadMoviesDetail(id: Int): LiveData<ApiResponse<FilmModel>>
     fun loadSeriesDetail(id: Int): LiveData<ApiResponse<FilmModel>>
 }

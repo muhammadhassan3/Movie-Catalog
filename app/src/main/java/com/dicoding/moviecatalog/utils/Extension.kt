@@ -14,12 +14,7 @@ import com.dicoding.moviecatalog.data.model.jsonmodel.SeriesModelJson
 import com.google.android.material.snackbar.Snackbar
 
 fun View.gone(){
-    animate().alpha(0f)
-        .setListener(object: AnimatorListenerAdapter(){
-            override fun onAnimationEnd(animation: Animator?) {
-                visibility = View.GONE
-            }
-        }).duration = 200
+    visibility = View.GONE
 }
 
 fun View.visible(){
@@ -33,7 +28,7 @@ fun View.showSnackbar(message: String){
     Snackbar.make(this, message, Snackbar.LENGTH_SHORT).show()
 }
 
-fun ImageView.loadImage(url: Any, tag: Any) {
+fun ImageView.loadImage(url: Any, tag: Any?) {
     this.tag = tag
     Glide.with(this).load(url).placeholder(R.drawable.image_placeholder)
         .error(R.drawable.image_broken)
@@ -70,5 +65,5 @@ fun SeriesModelJson.asDomain(): FilmModel {
 fun RandomModelJson.asDomain(): FilmModel {
     val genre = genres.map { it.name }
     val title = title ?: originalName
-    return FilmModel(title, rating, releaseDate, genre, synopsis, type, poster, id)
+    return FilmModel(title, rating ?: 0f, releaseDate ?: "", genre, synopsis ?: "", type ?: "", poster ?: "", id)
 }

@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/muham/.gradle/caches/transforms-3/8e2706a300bbec00002d22cf9bfadad6/transformed/appcompat-1.4.0/res/drawable/abc_ratingbar_small_material.xml" value="0.2203125" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable-v24/ic_search.xml" value="0.158" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/app_icon.xml" value="0.11851851851851852" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/circle_outline.xml" value="0.2203125" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/curved_backgroud_grey.xml" value="0.2203125" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/fab_background.xml" value="0.157" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1234375" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/ic_baseline_film_24.xml" value="0.1" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.2203125" />
@@ -16,16 +18,32 @@
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/image_placeholde.xml" value="0.3173828125" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/drawable/image_placeholder.xml" value="0.2203125" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_detail_film.xml" value="0.25" />
-        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_favorite.xml" value="0.25" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_main.xml" value="0.31209150326797386" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_search.xml" value="0.22" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_favorite_movie.xml" value="0.22" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_favorite_movies.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_favorite_series.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_movies.xml" value="0.22" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_shared_film.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/fragment_tv_show.xml" value="0.1" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_collapsing_toolbar.xml" value="0.25" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_item_medium.xml" value="0.25" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_item_small.xml" value="0.22" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_no_data.xml" value="0.25" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_request_error.xml" value="0.75" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/layout_shimmer_item_small.xml" value="0.1111111111111111" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_detail_film.xml" value="0.33" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_item_medium.xml" value="0.13854527461652646" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_item_medium_placeholder.xml" value="0.25" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_item_small_placeholder.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_medium.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_medium_placeholder.xml" value="0.1" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_small.xml" value="0.22" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/layout/shimmer_layout_small_placeholder.xml" value="0.1" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/menu/menu_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/menu/search.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/muham/AndroidStudioProjects/MovieCatalog/app/src/main/res/mipmap-anydpi-v26/app_icon.xml" value="0.2203125" />
       </map>
     </option>

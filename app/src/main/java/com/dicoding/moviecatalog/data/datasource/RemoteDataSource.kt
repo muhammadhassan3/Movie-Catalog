@@ -1,93 +1,54 @@
-package com.dicoding.moviecatalog.data.remote
+package com.dicoding.moviecatalog.data.datasource
 
 import com.dicoding.moviecatalog.data.model.FilmModel
 import com.dicoding.moviecatalog.data.model.jsonmodel.MovieModelJson
 import com.dicoding.moviecatalog.data.model.jsonmodel.RandomModelJson
 import com.dicoding.moviecatalog.data.model.jsonmodel.SeriesModelJson
-import com.dicoding.moviecatalog.data.model.jsonmodel.TmdbModel
-import com.dicoding.moviecatalog.utils.CallbackWithRetry
-import com.dicoding.moviecatalog.utils.EspressoIdlingResources
-import com.dicoding.moviecatalog.utils.asDomain
+import com.dicoding.moviecatalog.utils.*
 import com.dicoding.moviecatalog.utils.rest.FilmApiInterface
 
-open class RemoteDataSource(private val api: FilmApiInterface) {
-    fun loadRandom(size: Int, callback: LoadTrendingList) {
-        increase()
-        val request = api.getTrending()
-        callback.onRequestCalled()
-        request.enqueue(object : CallbackWithRetry<TmdbModel<RandomModelJson>>() {
-            override fun onResponseSuccess(data: TmdbModel<RandomModelJson>?) {
-                if (data?.results != null) {
-                    callback.onResponseSuccess(
-                        data.results.map(RandomModelJson::asDomain).chunked(size)[0]
-                    )
-                } else callback.onNoDataReceived()
-                decrease()
-            }
-
-            override fun onResponseFailed(errorCode: Int, errorMessage: String) {
-                callback.onErrorResponse(errorCode, errorMessage)
-                decrease()
-            }
-
-            override fun onConnectionError(message: String) {
-                callback.onConnectionError(message)
-                decrease()
-            }
-
-        })
+open class RemoteDataSource private constructor(private val api: FilmApiInterface) {
+    suspend fun loadTrending(page: Int): ApiResponse<List<FilmModel>> {
+        val response = api.getTrending(page)
+        return if (response.isSuccessful) {
+            val data = response.body()?.results
+            if (data != null) {
+                ApiResponse.success(data.map(RandomModelJson::asDomain), null)
+            } else ApiResponse.noData()
+        }else ApiResponse.error(provideRequestErrorMessage(response.code(), response.message()))
     }
 
-    fun loadMovies(callback: LoadMoviesList) {
-        increase()
-        val request = api.getMovies()
-        callback.onRequestCalled()
-        request.enqueue(object : CallbackWithRetry<TmdbModel<MovieModelJson>>() {
-            override fun onResponseSuccess(data: TmdbModel<MovieModelJson>?) {
-                if (data?.results != null) {
-                    callback.onResponseSuccess(data.results.map(MovieModelJson::asDomain))
-                } else callback.onNoDataReceived()
-                decrease()
-            }
-
-            override fun onResponseFailed(errorCode: Int, errorMessage: String) {
-                callback.onErrorResponse(errorCode, errorMessage)
-                decrease()
-            }
-
-            override fun onConnectionError(message: String) {
-                callback.onConnectionError(message)
-                decrease()
-            }
-
-        })
+    suspend fun loadMovies(page: Int): ApiResponse<List<FilmModel>> {
+        val response = api.getMovies(page)
+        return if (response.isSuccessful) {
+            val data = response.body()?.results
+            if (data != null) {
+                ApiResponse.success(data.map(MovieModelJson::asDomain), null)
+            } else ApiResponse.noData()
+        } else ApiResponse.error(provideRequestErrorMessage(response.code(), response.message()))
     }
 
-    fun loadSeries(callback: LoadSeriesList) {
-        increase()
-        val request = api.getSeries()
-        callback.onRequestCalled()
-        request.enqueue(object : CallbackWithRetry<TmdbModel<SeriesModelJson>>() {
-            override fun onResponseSuccess(data: TmdbModel<SeriesModelJson>?) {
-                if (data?.results != null) {
-                    callback.onResponseSuccess(data.results.map(SeriesModelJson::asDomain))
-                } else callback.onNoDataReceived()
-                decrease()
-            }
-
-            override fun onResponseFailed(errorCode: Int, errorMessage: String) {
-                callback.onErrorResponse(errorCode, errorMessage)
-                decrease()
-            }
-
-            override fun onConnectionError(message: String) {
-                callback.onConnectionError(message)
-                decrease()
-            }
-        })
+    suspend fun loadSeries(page: Int): ApiResponse<List<FilmModel>> {
+        val response = api.getSeries(page)
+        return if (response.isSuccessful) {
+            val data = response.body()?.results
+            if (data != null) {
+                ApiResponse.success(data.map(SeriesModelJson::asDomain), null)
+            } else ApiResponse.noData()
+        } else ApiResponse.error(provideRequestErrorMessage(response.code(), response.message()))
     }
 
-    fun loadMoviesDetail(id: Int, callback: LoadMovieDetail) {
+    suspend fun getSearchResult(page: Int, query: String): ApiResponse<List<FilmModel>>{
+        val response = api.getSearchResult(page, query)
+        return if(response.isSuccessful){
+            val data = response.body()?.results
+            if(data != null) {
+                ApiResponse.success(data.map(RandomModelJson::asDomain), null)
+            }else ApiResponse.noData()
+        }else ApiResponse.error(provideRequestErrorMessage(response.code(), response.message()))
+    }
+
+    fun loadMovieDetail(id: Int, callback: LoadMovieDetail) {
         increase()
         val request = api.getMoviesDetail(id)
         callback.onRequestCalled()

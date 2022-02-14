@@ -9,13 +9,16 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Theme.MovieCatalog.AppBarOverlay">
+        android:theme="@style/Theme.MovieCatalog.AppBarOverlay"
+        android:id="@+id/appbar">
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:background="@color/white"
-            android:id="@+id/collapsingToolbar">
+            android:id="@+id/collapsingToolbar"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white">
             <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -23,8 +26,13 @@
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"
                 android:id="@+id/layoutCollapsingToolbar"/>
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/toolbar"
+                app:popupTheme="@style/Theme.MovieCatalog.PopUpOverlay"
+                app:layout_collapseMode="pin"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
@@ -33,6 +41,7 @@
             style="@style/MovieCatalog.TabLayout"
             app:tabIndicatorFullWidth="true"
             app:tabIndicatorHeight="2dp"
+            app:tabIndicatorColor="@color/viridian_green"
             android:background="@color/white">
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -41,4 +50,32 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/viewPager" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnBookmark"
+        style="@style/MovieCatalog.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/btn_bookmark"
+        app:borderWidth="0dp"
+        app:rippleColor="@color/grey"
+        app:srcCompat="@drawable/ic_baseline_local_movies_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnSearch"
+        style="@style/MovieCatalog.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchorGravity="end|bottom"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/btn_search"
+        app:borderWidth="0dp"
+        app:rippleColor="@color/grey"
+        app:srcCompat="@drawable/ic_search"
+        app:layout_anchor="@id/appbar"
+        android:backgroundTint="@android:color/holo_blue_light"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

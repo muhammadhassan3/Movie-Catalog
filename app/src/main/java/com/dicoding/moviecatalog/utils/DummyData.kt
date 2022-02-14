@@ -52,3 +52,7 @@ fun provideMovieDummyData(): MovieModelJson {
 fun provideSeriesDummyData(): SeriesModelJson{
     return JsonHelper.loadSeriesModelFromJson(JsonHelper.parseStringFromJsonResource("seriesDetail.json"))
 }
+
+fun provideSearchResultData(): TmdbModel<RandomModelJson>{
+    return JsonHelper.loadSearchResultFromJson(JsonHelper.parseStringFromJsonResource("searchResult.json"))
+}

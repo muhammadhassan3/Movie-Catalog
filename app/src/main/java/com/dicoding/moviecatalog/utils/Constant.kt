@@ -8,5 +8,6 @@ object Constant {
         ignoreUnknownKeys = true
         isLenient = true
     }
-
+    const val NETWORK_PAGE_SIZE = 20
+    const val TMDB_STARTING_PAGE = 1
 }

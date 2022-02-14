@@ -8,17 +8,17 @@ data class RandomModelJson(
     @SerialName("original_title")
     val title: String? = null,
     @SerialName("vote_average")
-    val rating: Float = 0f,
+    val rating: Float? = 0f,
     @SerialName("release_date")
-    val releaseDate: String = "",
+    val releaseDate: String? = "",
     @SerialName("genres")
     val genres: List<Genre> = emptyList(),
     @SerialName("overview")
-    val synopsis: String ="",
+    val synopsis: String? ="",
     @SerialName("media_type")
-    val type: String = "",
+    val type: String? = "",
     @SerialName("poster_path")
-    val poster: String = "",
+    val poster: String? = "",
     @SerialName("id")
     val id: Int = 0,
     @SerialName("original_name")

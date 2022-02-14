@@ -15,8 +15,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.MovieCatalog.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.MovieCatalog.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Theme.MovieCatalog.PopUpOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="MovieCatalog.TextView.Medium" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textColor">@color/black</item>
@@ -35,4 +36,22 @@
         <item name="tabSelectedTextColor">@color/black</item>
         <item name="indicatorColor">@color/black</item>
     </style>
+
+    <style name="MovieCatalog.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <style name="MovieCatalog.MaterialButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/black</item>
+        <item name="strokeColor">@color/black</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Theme.MovieCatalog.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MovieCatalog.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

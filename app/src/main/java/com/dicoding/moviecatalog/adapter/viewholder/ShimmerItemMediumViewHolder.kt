@@ -1,0 +1,6 @@
+package com.dicoding.moviecatalog.adapter.viewholder
+
+import androidx.recyclerview.widget.RecyclerView
+import com.dicoding.moviecatalog.databinding.ShimmerLayoutMediumPlaceholderBinding
+
+class ShimmerItemMediumViewHolder(val binding: ShimmerLayoutMediumPlaceholderBinding): RecyclerView.ViewHolder(binding.root)

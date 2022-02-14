@@ -15,13 +15,14 @@ import java.util.concurrent.TimeUnit
 class RetrofitClient {
     companion object{
         private const val BASE_URL = "https://api.themoviedb.org/3/"
+        @Volatile
         private var INSTANCE: Retrofit? = null
 
         private fun getClient(): Retrofit{
             return if(INSTANCE != null) INSTANCE!! else{
                 val jsonFactory = Constant.json.asConverterFactory("application/json".toMediaType())
                 val loggingInterceptor = HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BASIC
+                    level = HttpLoggingInterceptor.Level.BODY
                 }
                 val client = OkHttpClient.Builder()
                     .connectTimeout(15, TimeUnit.SECONDS)
